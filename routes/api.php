@@ -1,7 +1,10 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Models\Project;
+use App\Models\Experience;
 use Illuminate\Support\Facades\Route;
+use App\Http\Resources\ProjectResource;
+use App\Http\Resources\ExperienceResource;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +17,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::get('/projects', function () {
+    return ProjectResource::collection(Project::all());
+});
+
+Route::get('/experiences', function () {
+    return ExperienceResource::collection(Experience::all());
 });
