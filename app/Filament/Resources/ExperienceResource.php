@@ -19,6 +19,8 @@ class ExperienceResource extends Resource
     protected static ?string $model = Experience::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-briefcase';
+    protected static ?string $navigationGroup = 'Content Management';
+
 
     public static function form(Form $form): Form
     {
@@ -98,5 +100,10 @@ class ExperienceResource extends Resource
     public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count();
+    }
+
+    public static function canViewAny(): bool
+    {
+        return auth()->user()->hasRole('Admin');
     }
 }
