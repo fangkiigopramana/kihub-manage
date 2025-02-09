@@ -19,6 +19,7 @@ class ShortUrlResource extends Resource
     protected static ?string $model = ShortUrl::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-link';
+    protected static ?string $navigationGroup = 'Features';
 
     public static function form(Form $form): Form
     {
