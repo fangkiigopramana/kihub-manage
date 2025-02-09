@@ -14,11 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect('/admin');
-})->name('login');
+    return redirect('/features');
+})->name('home');
+
+// Route::get('/')
 
 
-Route::any('/admin/{any?}', function () {
-    return route('login');
+Route::any('/features/{any?}', function () {
+    return route('home');
 })->where('any', '.*');
 
