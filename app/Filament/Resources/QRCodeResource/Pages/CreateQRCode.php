@@ -43,11 +43,11 @@ class CreateQRCode extends CreateRecord
             ->size(300)
             ->margin(10)
             ->labelText($data['label_text'] ?? '')
-            ->labelAlignment(match ($data['label_alignment']) {
+            ->labelAlignment(isset($data['label_alignment']) ? match ($data['label_alignment']) {
                 'Right' => LabelAlignment::Right,
                 'Center' => LabelAlignment::Center,
                 default => LabelAlignment::Left, // or any default alignment
-            })
+            } : LabelAlignment::Left) // default alignment if label_alignment is null
             ->build();
 
         // Simpan gambar QR Code ke storage
