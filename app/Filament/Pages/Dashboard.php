@@ -3,6 +3,7 @@
 namespace App\Filament\Pages;
 
 use App\Filament\Widgets\MapWidget;
+use App\Filament\Widgets\SistemAntrian;
 use Filament\Pages\Page;
 
 class Dashboard extends Page
@@ -14,7 +15,8 @@ class Dashboard extends Page
     public static function getWidgets(): array
     {
         return [
-            MapWidget::class, // Tambahkan widget peta
+            SistemAntrian::class, // Tambahkan widget sistem antrian
+            // MapWidget::class, // Tambahkan widget peta
         ];
     }
 }

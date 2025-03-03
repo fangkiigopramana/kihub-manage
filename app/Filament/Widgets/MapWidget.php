@@ -2,12 +2,21 @@
 
 namespace App\Filament\Widgets;
 
+use InfinityXTech\FilamentWorldMapWidget\Enums\Map;
 use InfinityXTech\FilamentWorldMapWidget\Widgets\WorldMapWidget;
 
 class MapWidget extends WorldMapWidget
 {
     protected int | string | array $columnSpan = 3;
-
+    /**
+     * Defines the map type to be displayed.
+     *
+     * @return Map|string The map type, defaults to the WORLD map.
+     */
+    public function map(): Map|string
+    {
+        return Map::WORLD_MERC; // Enum value for the world map
+    }
     /**
      * Specifies the height of the widget container.
      *
